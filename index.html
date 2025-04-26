@@ -6,7 +6,7 @@
   <title>ArduNation - Proyectos con Arduino</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-
+ 
     * {
       margin: 0;
       padding: 0;
@@ -89,6 +89,12 @@
       transition: transform 0.3s, box-shadow 0.3s;
       opacity: 0;
       transform: translateY(50px);
+      cursor: pointer;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
     .project.show {
@@ -116,7 +122,58 @@
       animation: fadeUp 1s ease forwards;
     }
 
-    /* Animaciones */
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeIn 0.4s;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: slideUp 0.5s ease forwards;
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      color: #0073e6;
+      margin-bottom: 15px;
+    }
+
+    .modal-content p {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #e74c3c;
+    }
+
     @keyframes slideInTop {
       0% {
         opacity: 0;
@@ -150,6 +207,21 @@
       }
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -172,19 +244,19 @@
       <h2>Proyectos Destacados</h2>
       <p>Inspírate con proyectos prácticos y creativos usando Arduino.</p>
 
-      <div class="project">
+      <div class="project" data-title="Estación Meteorológica" data-description="Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD. Ideal para proyectos de clima inteligente.">
         <h3>🌡️ Estación Meteorológica</h3>
-        <p>Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD.</p>
+        <p>Usa sensores de temperatura, humedad y presión para tu propio clima inteligente.</p>
       </div>
 
-      <div class="project">
+      <div class="project" data-title="Dispensador Automático de Comida" data-description="Sistema controlado por reloj RTC y servomotores para alimentar a tu mascota automáticamente a horas programadas. Incluye sensor de comida restante.">
         <h3>🐾 Dispensador Automático de Comida para Mascotas</h3>
-        <p>Controlado por reloj RTC y servomotores, ideal para alimentar a tu mascota en horarios programados.</p>
+        <p>Alimenta a tu mascota a horarios programados usando Arduino.</p>
       </div>
 
-      <div class="project">
+      <div class="project" data-title="Control de Luces Automático" data-description="Sistema basado en sensor PIR para detectar movimiento y encender o apagar luces automáticamente, ideal para hogares inteligentes y ahorro energético.">
         <h3>💡 Control de Luces con Sensor de Movimiento</h3>
-        <p>Detecta movimiento con un sensor PIR y enciende luces automáticamente. ¡Ideal para automatizar tu hogar!</p>
+        <p>Automatiza la iluminación de tu casa con sensores de movimiento.</p>
       </div>
     </section>
 
@@ -204,8 +276,16 @@
     <p>&copy; 2025 ArduNation. Todos los derechos reservados.</p>
   </footer>
 
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
   <script>
-    // Animación de aparición de proyectos
+
     const projects = document.querySelectorAll('.project');
 
     const observer = new IntersectionObserver(entries => {
@@ -221,6 +301,28 @@
     projects.forEach(project => {
       observer.observe(project);
     });
+
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+
+    projects.forEach(project => {
+      project.addEventListener('click', () => {
+        modalTitle.textContent = project.getAttribute('data-title');
+        modalDescription.textContent = project.getAttribute('data-description');
+        modal.style.display = 'flex';
+      });
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
   </script>
 
 </body>
