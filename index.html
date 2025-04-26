@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ArduNation - Proyectos con Arduino</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🤖</text></svg>">
+  <!-- SEO Mejorado -->
+  <meta name="description" content="Descubre proyectos y tutoriales con Arduino en ArduNation. Electrónica creativa y práctica.">
+  <meta name="keywords" content="Arduino, proyectos, electrónica, tutoriales, robótica, IoT">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
- 
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
@@ -29,12 +34,12 @@
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
 
     header p {
       margin-top: 10px;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     nav {
@@ -70,21 +75,21 @@
 
     section h2 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 20px;
     }
 
     section p {
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 40px;
     }
 
-    .project {
+    .project, .tutorial {
       background-color: #fff;
       border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 30px;
+      padding: 20px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s, box-shadow 0.3s;
       opacity: 0;
@@ -92,23 +97,23 @@
       cursor: pointer;
     }
 
-    .project:hover {
+    .project:hover, .tutorial:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
-    .project.show {
+    .project.show, .tutorial.show {
       opacity: 1;
       transform: translateY(0);
       transition: all 0.6s ease;
     }
 
-    .project h3 {
+    .project h3, .tutorial h3 {
       color: #0073e6;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
     }
 
-    .project p {
+    .project p, .tutorial p {
       margin-top: 10px;
       line-height: 1.6;
     }
@@ -122,7 +127,7 @@
       animation: fadeUp 1s ease forwards;
     }
 
-
+    /* Modal */
     .modal {
       position: fixed;
       top: 0;
@@ -134,7 +139,8 @@
       align-items: center;
       justify-content: center;
       z-index: 2000;
-      animation: fadeIn 0.4s;
+      cursor: pointer; 
+      animation: fadeIn 0.4s forwards;
     }
 
     .modal-content {
@@ -147,16 +153,11 @@
       animation: slideUp 0.5s ease forwards;
       position: relative;
       text-align: center;
+      cursor: default;
     }
 
-    .modal-content h3 {
-      color: #0073e6;
-      margin-bottom: 15px;
-    }
-
-    .modal-content p {
-      margin-bottom: 20px;
-      line-height: 1.5;
+    .modal.fade-out {
+      animation: fadeOut 0.4s forwards;
     }
 
     .close-btn {
@@ -174,6 +175,7 @@
       color: #e74c3c;
     }
 
+    /* Animaciones */
     @keyframes slideInTop {
       0% {
         opacity: 0;
@@ -212,6 +214,11 @@
       to { opacity: 1; }
     }
 
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
     @keyframes slideUp {
       0% {
         opacity: 0;
@@ -222,13 +229,74 @@
         transform: translateY(0);
       }
     }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+
+      section p {
+        font-size: 0.9rem;
+      }
+
+      .project, .tutorial {
+        padding: 15px;
+      }
+
+      .project h3, .tutorial h3 {
+        font-size: 1.3rem;
+      }
+
+      .project p, .tutorial p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      section p {
+        font-size: 0.8rem;
+      }
+
+      .project h3, .tutorial h3 {
+        font-size: 1.2rem;
+      }
+
+      .project p, .tutorial p {
+        font-size: 0.8rem;
+      }
+
+      footer p {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
-<body>
 
+<body>
   <header id="inicio">
     <h1>ArduNation</h1>
-    <p>Descubre proyectos increíbles con Arduino y electrónica creativa</p>
+    <p>Descubre proyectos increíbles con Arduino y electrónica</p>
   </header>
 
   <nav>
@@ -239,7 +307,6 @@
   </nav>
 
   <div class="container">
-
     <section id="proyectos">
       <h2>Proyectos Destacados</h2>
       <p>Inspírate con proyectos prácticos y creativos usando Arduino.</p>
@@ -263,6 +330,11 @@
     <section id="tutoriales">
       <h2>Tutoriales</h2>
       <p>Aprende paso a paso cómo realizar proyectos con Arduino, desde lo básico hasta avanzados.</p>
+
+      <div class="tutorial">
+        <h3>🔧 Introducción a Arduino</h3>
+        <p>Aprende los conceptos básicos: instalación de Arduino IDE, primeros programas y conexión de tu primer LED.</p>
+      </div>
     </section>
 
     <section id="contacto">
@@ -276,6 +348,7 @@
     <p>&copy; 2025 ArduNation. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Modal -->
   <div class="modal" id="projectModal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">&times;</button>
@@ -285,8 +358,8 @@
   </div>
 
   <script>
-
-    const projects = document.querySelectorAll('.project');
+    // Animación de aparición de proyectos y tutoriales
+    const elements = document.querySelectorAll('.project, .tutorial');
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -294,36 +367,39 @@
           entry.target.classList.add('show');
         }
       });
-    }, {
-      threshold: 0.3
-    });
+    }, { threshold: 0.3 });
 
-    projects.forEach(project => {
-      observer.observe(project);
-    });
+    elements.forEach(el => observer.observe(el));
 
+    // Modal
     const modal = document.getElementById('projectModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
+    const projects = document.querySelectorAll('.project');
 
     projects.forEach(project => {
-      project.addEventListener('click', () => {
+      project.addEventListener('click', (e) => {
+        e.stopPropagation();
         modalTitle.textContent = project.getAttribute('data-title');
         modalDescription.textContent = project.getAttribute('data-description');
+        modal.classList.remove('fade-out');
         modal.style.display = 'flex';
       });
     });
 
     function closeModal() {
-      modal.style.display = 'none';
+      modal.classList.add('fade-out');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('fade-out');
+      }, 400);
     }
 
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
+      if (event.target === modal) {
+        closeModal();
       }
     }
   </script>
-
 </body>
 </html>
