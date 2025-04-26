@@ -2,97 +2,226 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ArduNation - Proyectos con Arduino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
+
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
     }
 
     header {
-      background-color: #0073e6;
-      color: white;
-      padding: 20px 0;
+      background: linear-gradient(135deg, #0073e6, #005bb5);
+      color: #fff;
       text-align: center;
+      padding: 80px 20px 60px;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.3rem;
     }
 
     nav {
       background-color: #005bb5;
-      padding: 10px;
-      text-align: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideInTop 1s ease forwards;
     }
 
     nav a {
-      color: white;
-      margin: 0 15px;
+      color: #fff;
+      margin: 0 20px;
       text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffdd57;
     }
 
     .container {
-      padding: 20px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
     }
 
     .project {
-      background-color: white;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .project.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
     }
 
     .project h3 {
       color: #0073e6;
+      font-size: 1.7rem;
+    }
+
+    .project p {
+      margin-top: 10px;
+      line-height: 1.6;
     }
 
     footer {
-      background-color: #333;
-      color: white;
+      background-color: #2c3e50;
+      color: #ecf0f1;
       text-align: center;
-      padding: 15px 0;
-      margin-top: 20px;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      animation: fadeUp 1s ease forwards;
     }
+
+    /* Animaciones */
+    @keyframes slideInTop {
+      0% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <header>
+  <header id="inicio">
     <h1>ArduNation</h1>
     <p>Descubre proyectos increíbles con Arduino y electrónica creativa</p>
   </header>
 
   <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Proyectos</a>
-    <a href="#">Tutoriales</a>
-    <a href="#">Contacto</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#tutoriales">Tutoriales</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 
   <div class="container">
-    <h2>Bienvenido a ArduNation</h2>
-    <p>En esta página encontrarás proyectos, ideas y tutoriales para aprender electrónica y programación con Arduino.</p>
 
-    <div class="project">
-      <h3>🌡️ Estación Meteorológica</h3>
-      <p>Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD.</p>
-    </div>
+    <section id="proyectos">
+      <h2>Proyectos Destacados</h2>
+      <p>Inspírate con proyectos prácticos y creativos usando Arduino.</p>
 
-    <div class="project">
-      <h3>🐾 Dispensador Automático de Comida para Mascotas</h3>
-      <p>Controlado por reloj RTC y servo motores, ideal para alimentar a tu mascota a horas programadas.</p>
-    </div>
+      <div class="project">
+        <h3>🌡️ Estación Meteorológica</h3>
+        <p>Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD.</p>
+      </div>
 
-    <div class="project">
-      <h3>💡 Control de Luces con Sensor de Movimiento</h3>
-      <p>Detecta movimiento con un sensor PIR y enciende luces automáticamente. ¡Ideal para automatizar tu hogar!</p>
-    </div>
+      <div class="project">
+        <h3>🐾 Dispensador Automático de Comida para Mascotas</h3>
+        <p>Controlado por reloj RTC y servomotores, ideal para alimentar a tu mascota en horarios programados.</p>
+      </div>
+
+      <div class="project">
+        <h3>💡 Control de Luces con Sensor de Movimiento</h3>
+        <p>Detecta movimiento con un sensor PIR y enciende luces automáticamente. ¡Ideal para automatizar tu hogar!</p>
+      </div>
+    </section>
+
+    <section id="tutoriales">
+      <h2>Tutoriales</h2>
+      <p>Aprende paso a paso cómo realizar proyectos con Arduino, desde lo básico hasta avanzados.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes dudas o quieres colaborar? ¡Escríbenos y hagamos proyectos juntos!</p>
+    </section>
+
   </div>
 
   <footer>
     <p>&copy; 2025 ArduNation. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Animación de aparición de proyectos
+    const projects = document.querySelectorAll('.project');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    projects.forEach(project => {
+      observer.observe(project);
+    });
+  </script>
 
 </body>
 </html>
