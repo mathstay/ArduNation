@@ -1,405 +1,158 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ArduNation - Proyectos con Arduino</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🤖</text></svg>">
-  <!-- SEO Mejorado -->
-  <meta name="description" content="Descubre proyectos y tutoriales con Arduino en ArduNation. Electrónica creativa y práctica.">
-  <meta name="keywords" content="Arduino, proyectos, electrónica, tutoriales, robótica, IoT">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0073e6, #005bb5);
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px 60px;
-      animation: fadeDown 1s ease forwards;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-    }
-
-    nav {
-      background-color: #005bb5;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      animation: slideInTop 1s ease forwards;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffdd57;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    section {
-      margin-bottom: 80px;
-    }
-
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      text-align: center;
-      font-size: 1rem;
-      margin-bottom: 40px;
-    }
-
-    .project, .tutorial {
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      transform: translateY(50px);
-      cursor: pointer;
-    }
-
-    .project:hover, .tutorial:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .project.show, .tutorial.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.6s ease;
-    }
-
-    .project h3, .tutorial h3 {
-      color: #0073e6;
-      font-size: 1.5rem;
-    }
-
-    .project p, .tutorial p {
-      margin-top: 10px;
-      line-height: 1.6;
-    }
-
-    footer {
-      background-color: #2c3e50;
-      color: #ecf0f1;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 0.9rem;
-      animation: fadeUp 1s ease forwards;
-    }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      cursor: pointer; 
-      animation: fadeIn 0.4s forwards;
-    }
-
-    .modal-content {
-      background-color: white;
-      border-radius: 12px;
-      padding: 30px;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      animation: slideUp 0.5s ease forwards;
-      position: relative;
-      text-align: center;
-      cursor: default;
-    }
-
-    .modal.fade-out {
-      animation: fadeOut 0.4s forwards;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #555;
-      cursor: pointer;
-    }
-
-    .close-btn:hover {
-      color: #e74c3c;
-    }
-
-    /* Animaciones */
-    @keyframes slideInTop {
-      0% {
-        opacity: 0;
-        transform: translateY(-100%);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
-
-    @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(100px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Media Queries */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav a {
-        margin: 0 10px;
-      }
-
-      section h2 {
-        font-size: 1.8rem;
-      }
-
-      section p {
-        font-size: 0.9rem;
-      }
-
-      .project, .tutorial {
-        padding: 15px;
-      }
-
-      .project h3, .tutorial h3 {
-        font-size: 1.3rem;
-      }
-
-      .project p, .tutorial p {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      nav a {
-        font-size: 0.9rem;
-      }
-
-      section h2 {
-        font-size: 1.5rem;
-      }
-
-      section p {
-        font-size: 0.8rem;
-      }
-
-      .project h3, .tutorial h3 {
-        font-size: 1.2rem;
-      }
-
-      .project p, .tutorial p {
-        font-size: 0.8rem;
-      }
-
-      footer p {
-        font-size: 0.8rem;
-      }
-    }
-  </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>ArduNation - Proyectos con Arduino</title>
+   <link rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🤖</text></svg>">
+   <!-- SEO Mejorado -->
+   <meta name="description"
+      content="Descubre proyectos y tutoriales con Arduino en ArduNation. Electrónica creativa y práctica.">
+   <meta name="keywords" content="Arduino, proyectos, electrónica, tutoriales, robótica, IoT">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<script src="script.js"></script>
 
 <body>
-  <header id="inicio">
-    <h1>ArduNation</h1>
-    <p>Descubre proyectos increíbles con Arduino y electrónica</p>
-  </header>
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#tutoriales">Tutoriales</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+   <header id="inicio">
+      <h1 class="fade-in">ArduNation</h1>
+      <p>Descubre proyectos increíbles con Arduino y electrónica</p>
+   </header>
 
-  <div class="container">
-    <section id="proyectos">
-      <h2>Proyectos Destacados</h2>
-      <p>Inspírate con proyectos prácticos y creativos usando Arduino.</p>
+   <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#tutoriales">Tutoriales</a>
+      <a href="#contacto">Contacto</a>
+   </nav>
+   <div class="container">
+      <section id="proyectos">
+         <h2>Proyectos Destacados</h2>
+         <p>Inspírate con proyectos prácticos y creativos usando Arduino.</p>
 
-      <div class="project" data-title="Estación Meteorológica" data-description="Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD. Ideal para proyectos de clima inteligente.">
-        <h3>🌡️ Estación Meteorológica</h3>
-        <p>Usa sensores de temperatura, humedad y presión para tu propio clima inteligente.</p>
-      </div>
+         <div class="project" data-title="Estación Meteorológica"
+            data-description="Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD. Ideal para proyectos de clima inteligente.">
+            <h3>🌡️ Estación Meteorológica</h3>
+            <p>Usa sensores de temperatura, humedad y presión para tu propio clima inteligente.</p>
+         </div>
 
-      <div class="project" data-title="Dispensador Automático de Comida" data-description="Sistema controlado por reloj RTC y servomotores para alimentar a tu mascota automáticamente a horas programadas, con un sensor de comida restante.">
-        <h3>🐾 Dispensador Automático de Comida para Mascotas</h3>
-        <p>Alimenta a tu mascota a horarios programados usando Arduino.</p>
-      </div>
+         <div class="project" data-title="Dispensador Automático de Comida"
+            data-description="Sistema controlado por reloj RTC y servomotores para alimentar a tu mascota automáticamente a horas programadas, con un sensor de comida restante.">
+            <h3>🐾 Dispensador Automático de Comida para Mascotas</h3>
+            <p>Alimenta a tu mascota a horarios programados usando Arduino.</p>
+         </div>
 
-      <div class="project" data-title="Control de Luces Automático" data-description="Sistema basado en sensor PIR para detectar movimiento y encender o apagar luces automáticamente, ideal para hogares inteligentes y ahorro energético.">
-        <h3>💡 Control de Luces con Sensor de Movimiento</h3>
-        <p>Automatiza la iluminación de tu casa con sensores de movimiento.</p>
-      </div>
-    </section>
+         <div class="project" data-title="Control de Luces Automático"
+            data-description="Sistema basado en sensor PIR para detectar movimiento y encender o apagar luces automáticamente, ideal para hogares inteligentes y ahorro energético.">
+            <h3>💡 Control de Luces con Sensor de Movimiento</h3>
+            <p>Automatiza la iluminación de tu casa con sensores de movimiento.</p>
+         </div>
+      </section>
 
-    <section id="tutoriales">
-      <h2>Tutoriales</h2>
-      <p>Aprende paso a paso cómo realizar proyectos con Arduino, desde lo básico hasta avanzados.</p>
+      <section id="tutoriales">
+         <h2>Tutoriales</h2>
+         <p>Aprende paso a paso cómo realizar proyectos con Arduino, desde lo básico hasta avanzados.</p>
 
-      <div class="tutorial">
-        <h3>🔧 Introducción a Arduino</h3>
-        <p>Aprende los conceptos básicos: instalación de Arduino IDE, primeros programas y conexión de tu primer LED.</p>
-      </div>
-    </section>
+         <div class="tutorial">
+            <h3>🔧 Introducción a Arduino</h3>
+            <p>Aprende los conceptos básicos: instalación de Arduino IDE, primeros programas y conexión de tu primer
+               LED.</p>
+         </div>
+      </section>
 
-    <section id="contacto">
+      <section id="contacto">
+         <h2>Contacto</h2>
+         <p>¿Tienes dudas o quieres colaborar? ¡Escríbenos y hagamos proyectos juntos!</p>
+      </section>
+
+   </div>
+
+   <section id="contacto">
       <h2>Contacto</h2>
-      <p>¿Tienes dudas o quieres colaborar? ¡Escríbenos y hagamos proyectos juntos!</p>
-    </section>
+      <form action="https://formspree.io/f/mrgrkplz" method="POST">
+         <label for="nombre">Nombre:</label>
+         <input type="text" id="nombre" name="nombre" required>
 
-  </div>
+         <label for="email">Correo Electrónico:</label>
+         <input type="email" id="email" name="email" required>
 
-  <footer>
-    <p>&copy; 2025 ArduNation. Todos los derechos reservados.</p>
-  </footer>
+         <label for="mensaje">Mensaje:</label>
+         <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
 
-  <!-- Modal -->
-  <div class="modal" id="projectModal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">&times;</button>
-      <h3 id="modalTitle"></h3>
-      <p id="modalDescription"></p>
-    </div>
-  </div>
+         <button type="submit">Enviar</button>
+      </form>
+   </section>
 
-  <script>
-    // Animación de aparición de proyectos y tutoriales
-    const elements = document.querySelectorAll('.project, .tutorial');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
+   <footer>
+      <p class="p1">© 2025 ArduNation - Creado por Mateo</p>
+      <div class="social-icons">
+         <a href="https://github.com/mathstay" target="_blank"><i class="fab fa-github"></i></a>
+         <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+         <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+   </footer>
+
+
+
+   <!-- Modal -->
+   <div class="modal" id="projectModal">
+      <div class="modal-content">
+         <button class="close-btn" onclick="closeModal()">&times;</button>
+         <h3 id="modalTitle"></h3>
+         <p id="modalDescription"></p>
+      </div>
+   </div>
+
+   <script>
+      // Animación de aparición de proyectos y tutoriales
+      const elements = document.querySelectorAll('.project, .tutorial');
+
+      const observer = new IntersectionObserver(entries => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               entry.target.classList.add('show');
+            }
+         });
+      }, { threshold: 0.3 });
+
+      elements.forEach(el => observer.observe(el));
+
+      // Modal
+      const modal = document.getElementById('projectModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const projects = document.querySelectorAll('.project');
+
+      projects.forEach(project => {
+         project.addEventListener('click', (e) => {
+            e.stopPropagation();
+            modalTitle.textContent = project.getAttribute('data-title');
+            modalDescription.textContent = project.getAttribute('data-description');
+            modal.classList.remove('fade-out');
+            modal.style.display = 'flex';
+         });
       });
-    }, { threshold: 0.3 });
 
-    elements.forEach(el => observer.observe(el));
-
-    // Modal
-    const modal = document.getElementById('projectModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const projects = document.querySelectorAll('.project');
-
-    projects.forEach(project => {
-      project.addEventListener('click', (e) => {
-        e.stopPropagation();
-        modalTitle.textContent = project.getAttribute('data-title');
-        modalDescription.textContent = project.getAttribute('data-description');
-        modal.classList.remove('fade-out');
-        modal.style.display = 'flex';
-      });
-    });
-
-    function closeModal() {
-      modal.classList.add('fade-out');
-      setTimeout(() => {
-        modal.style.display = 'none';
-        modal.classList.remove('fade-out');
-      }, 400);
-    }
-
-    window.onclick = function(event) {
-      if (event.target === modal) {
-        closeModal();
+      function closeModal() {
+         modal.classList.add('fade-out');
+         setTimeout(() => {
+            modal.style.display = 'none';
+            modal.classList.remove('fade-out');
+         }, 400);
       }
-    }
-  </script>
+
+      window.onclick = function (event) {
+         if (event.target === modal) {
+            closeModal();
+         }
+      }
+   </script>
 </body>
+
 </html>
