@@ -1,0 +1,462 @@
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  color: #ffffff;
+  margin-top: 50px;
+}
+
+p {
+  color: #0a0a0a;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  /* Verde bonito */
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  /* Verde un poquito más oscuro al pasar el mouse */
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 2s ease forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  animation: fadeUp 1s ease forwards;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #81c784;
+  /* Verde clarito cuando pasas el mouse */
+}
+
+/* Estilos responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 15px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+}
+
+#contacto {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* ANIMACIÓN AÑADIDA */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1s ease forwards;
+}
+
+
+#contacto h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contacto label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#contacto input,
+#contacto textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#contacto button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contacto button:hover {
+  background-color: #45a049;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #0073e6, #005bb5);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px 60px;
+  animation: fadeDown 1s ease forwards;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+nav {
+  background-color: #005bb5;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: slideInTop 1s ease forwards;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffdd57;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+section p {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.project,
+.tutorial {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(50px);
+  cursor: pointer;
+}
+
+.project:hover,
+.tutorial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project.show,
+.tutorial.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
+}
+
+.project h3,
+.tutorial h3 {
+  color: #0073e6;
+  font-size: 1.5rem;
+}
+
+.project p,
+.tutorial p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: pointer;
+  animation: fadeIn 0.4s forwards;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease forwards;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.modal.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+/* Animaciones */
+@keyframes slideInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  section p {
+    font-size: 0.9rem;
+  }
+
+  .project,
+  .tutorial {
+    padding: 15px;
+  }
+
+  .project h3,
+  .tutorial h3 {
+    font-size: 1.3rem;
+  }
+
+  .project p,
+  .tutorial p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section p {
+    font-size: 0.8rem;
+  }
+
+  .project h3,
+  .tutorial h3 {
+    font-size: 1.2rem;
+  }
+
+  .project p,
+  .tutorial p {
+    font-size: 0.8rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+  
+
+  
+  
+  
