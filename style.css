@@ -12,7 +12,17 @@ h1 {
 }
 
 p {
-  color: #0a0a0a;
+  color: #000000;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.p1 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
+}
+p1 {
+  color: #000000;
   font-size: 18px;
   margin-top: 20px;
 }
@@ -74,7 +84,7 @@ footer {
 }
 
 .social-icons a:hover {
-  color: #81c784;
+  color: #0073e6;
   /* Verde clarito cuando pasas el mouse */
 }
 
@@ -208,7 +218,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffdd57;
+  color: #000000;
 }
 
 .container {
@@ -453,10 +463,4 @@ section p {
   footer p {
     font-size: 0.8rem;
   }
-}
-
-  
-
-  
-  
-  
+}  
