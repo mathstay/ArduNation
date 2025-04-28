@@ -41,7 +41,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #ffffff;
   /* Verde un poquito más oscuro al pasar el mouse */
 }
 
@@ -301,8 +301,8 @@ section p {
 .modal-content {
   background-color: white;
   border-radius: 12px;
-  padding: 30px;
-  max-width: 600px;
+  padding: 90px;
+  max-width: 700px;
   width: 90%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   animation: slideUp 0.5s ease forwards;
@@ -327,7 +327,7 @@ section p {
 }
 
 .close-btn:hover {
-  color: #e74c3c;
+  color: #005bb5;
 }
 
 /* Animaciones */
@@ -463,4 +463,19 @@ section p {
   footer p {
     font-size: 0.8rem;
   }
-}  
+}
+.download-btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.download-btn:hover {
+  background-color: #45a049;
+}
