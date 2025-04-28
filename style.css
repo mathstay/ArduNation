@@ -6,6 +6,15 @@ body {
   text-align: center;
 }
 
+form {
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+}
+
+
+
+
 h1 {
   color: #ffffff;
   margin-top: 50px;
@@ -18,11 +27,6 @@ p {
 }
 .p1 {
   color: #ffffff;
-  font-size: 18px;
-  margin-top: 20px;
-}
-p1 {
-  color: #000000;
   font-size: 18px;
   margin-top: 20px;
 }
@@ -327,7 +331,7 @@ section p {
 }
 
 .close-btn:hover {
-  color: #005bb5;
+  color: #e74c3c;
 }
 
 /* Animaciones */
