@@ -1,42 +1,4 @@
-body {
-  background-color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-form {
-  width: 90%;
-  max-width: 500px;
-  margin: auto;
-}
-
-h1 {
-  color: #ffffff;
-  margin-top: 50px;
-}
-
-p {
-  color: #000000;
-  font-size: 18px;
-  margin-top: 20px;
-}
-.p1 {
-  color: #ffffff;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-button {
-  background-color: #4CAF50;
-  /* Verde bonito */
-  color: white;
-  padding: 15px 30px;
-  font-size: 16px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 8px;
+;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -358,18 +320,18 @@ section p {
 /* Ajustes para pantallas medianas (por ejemplo, tablets) */
 @media (max-width: 768px) {
   .close-btn {
-    top: 1px;  /* Reducir la distancia desde la parte superior */
-    left: 180px;  /* Colocar el botón en la esquina superior izquierda */
+    top: -25px;  /* Reducir la distancia desde la parte superior */
+    left: 175px;  /* Colocar el botón en la esquina superior izquierda */
     right: none;  /* Asegurarse de que no se aplique el margen derecho */
     font-size: 2rem;  /* Reducir el tamaño de la fuente en tabletas */
   }
 }
 
 /* Ajustes para pantallas pequeñas (por ejemplo, móviles) */
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .close-btn {
-    top: 1px;  /* Reducir la distancia desde la parte superior */
-    left: 180px;  /* Colocar el botón en la esquina superior izquierda */
+    top: -25px;  /* Reducir la distancia desde la parte superior */
+    left: 175px;  /* Colocar el botón en la esquina superior izquierda */
     right: none;  /* Asegurarse de que no se aplique el margen derecho */
     font-size: 2rem;  /* Reducir el tamaño de la fuente en tabletas */
   }
