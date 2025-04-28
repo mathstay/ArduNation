@@ -12,9 +12,6 @@ form {
   margin: auto;
 }
 
-
-
-
 h1 {
   color: #ffffff;
   margin-top: 50px;
@@ -67,7 +64,7 @@ button:hover {
 }
 
 footer {
-  background-color: #2c3e50;
+  background-color: #00979D;
   color: #ecf0f1;
   text-align: center;
   padding: 20px 0;
@@ -88,7 +85,7 @@ footer {
 }
 
 .social-icons a:hover {
-  color: #0073e6;
+  color: #000000;
   /* Verde clarito cuando pasas el mouse */
 }
 
@@ -125,11 +122,12 @@ footer {
   max-width: 1050px;
   margin-left: auto;
   margin-right: auto;
-  
-  /* ANIMACIÓN AÑADIDA */
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeUp 1s ease forwards;
+}
+.project.show,
+.contacto.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
 }
 
 
@@ -188,7 +186,7 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #0073e6, #005bb5);
+  background: linear-gradient(135deg, #00979D, #00989d);
   color: #fff;
   text-align: center;
   padding: 80px 20px 60px;
@@ -196,16 +194,16 @@ header {
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 6rem;
 }
 
 header p {
   margin-top: 10px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 nav {
-  background-color: #005bb5;
+  background-color: #01878b;
   padding: 15px 0;
   position: sticky;
   top: 0;
@@ -275,7 +273,7 @@ section p {
 
 .project h3,
 .tutorial h3 {
-  color: #0073e6;
+  color: #000000;
   font-size: 1.5rem;
 }
 
@@ -331,7 +329,7 @@ section p {
 }
 
 .close-btn:hover {
-  color: #e74c3c;
+  color: #000000;
 }
 
 /* Animaciones */
@@ -470,7 +468,7 @@ section p {
 }
 .download-btn {
   display: inline-block;
-  background-color: #4CAF50;
+  background-color: #757575;
   color: white;
   padding: 12px 20px;
   font-size: 16px;
@@ -481,5 +479,5 @@ section p {
 }
 
 .download-btn:hover {
-  background-color: #45a049;
+  background-color: #5a5a5a;
 }
