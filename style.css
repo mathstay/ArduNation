@@ -204,13 +204,13 @@ header p {
 }
 
 /* Ajustes para pantallas pequeñas (por ejemplo, teléfonos) */
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   header h1 {
-    font-size: 4rem;  /* Reducir el tamaño del título en pantallas pequeñas */
+    font-size: 12rem;  /* Reducir el tamaño del título en pantallas pequeñas */
   }
 
   header p {
-    font-size: 1.2rem;  /* Reducir el tamaño del subtítulo en pantallas pequeñas */
+    font-size: 1rem;  /* Reducir el tamaño del subtítulo en pantallas pequeñas */
   }
 }
 
@@ -450,7 +450,7 @@ section p {
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.5rem;
+    font-size: 3.9rem;
   }
 
   nav a {
