@@ -185,6 +185,7 @@ body {
   color: #333;
 }
 
+/* Estilo general del header */
 header {
   background: linear-gradient(135deg, #00979D, #00989d);
   color: #fff;
@@ -194,13 +195,25 @@ header {
 }
 
 header h1 {
-  font-size: 6rem;
+  font-size: 6rem;  /* Título grande por defecto */
 }
 
 header p {
   margin-top: 10px;
-  font-size: 1.5rem;
+  font-size: 1.5rem;  /* Subtítulo de tamaño moderado */
 }
+
+/* Ajustes para pantallas pequeñas (por ejemplo, teléfonos) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 4rem;  /* Reducir el tamaño del título en pantallas pequeñas */
+  }
+
+  header p {
+    font-size: 1.2rem;  /* Reducir el tamaño del subtítulo en pantallas pequeñas */
+  }
+}
+
 
 nav {
   background-color: #01878b;
