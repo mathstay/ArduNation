@@ -40,8 +40,8 @@
          <div class="project" data-title="Control de Cortinas Automático"
             data-description="Sistema para abrir y cerrar cortinas según la hora o la luz ambiental usando Arduino.">
             <h3>🪟 Control de Cortinas Automático</h3>
-            <p>Automatiza tus cortinas para mejorar el confort y ahorrar energía.</p>
-            <a href="https://github.com/mathstay/ControlCortinasAutomatico" class="download-btn" target="_blank">Descargar
+            <p>Automatiza tus cortinas para mejorar el confort.</p>
+            <a href="https://github.com/mathstay/Control-de-Cortinas-Autom-tico.git" class="download-btn" target="_blank">Descargar
                Código</a>
          </div>
 
@@ -57,8 +57,6 @@
             data-description="Usa sensores de temperatura, humedad y presión para crear tu propia estación meteorológica con pantalla LCD. Ideal para proyectos de clima inteligente.">
             <h3>🌡️ Estación Meteorológica</h3>
             <p>Usa sensores de temperatura, humedad y presión para tu propio clima inteligente.</p>
-
-            <!-- Botón para descargar el código -->
             <a href="https://github.com/mathstay/EstacionMeteorologica" class="download-btn" target="_blank">Descargar
                Código</a>
          </div>
@@ -117,48 +115,140 @@
          <h2>Tutoriales</h2>
          <p>Aprende paso a paso cómo realizar proyectos con Arduino, desde lo básico hasta avanzados.</p>
 
-         <div class="tutorial">
+         <div class="tutorial" onclick="toggleManual(this)">
             <h3>🔧 Introducción a Arduino</h3>
-            <p>Aprende los conceptos básicos: instalación de Arduino IDE, primeros programas y conexión de tu primer
-               LED.</p>
+            <p>Aprende los conceptos básicos: instalación de Arduino IDE, primeros programas y conexión de tu primer LED.</p>
+            <div class="manual">
+               <h4>📄 Manual:</h4>
+               <ol>
+                   <li><strong>Descargar e instalar Arduino IDE:</strong> Visita el sitio web oficial de Arduino (<a href="https://www.arduino.cc/en/software" target="_blank">https://www.arduino.cc/en/software</a>) y descarga la versión compatible con tu sistema operativo.</li>
+                   <li><strong>Configurar Arduino:</strong> Abre el Arduino IDE y selecciona la placa y el puerto correcto desde el menú "Herramientas".</li>
+                   <li><strong>Conectar la placa Arduino:</strong> Usa un cable USB para conectar la placa Arduino a tu computadora.</li>
+                   <li><strong>Escribir tu primer programa:</strong> Abre el programa de ejemplo "Blink" desde "Archivo" > "Ejemplos" > "Basics" > "Blink".</li>
+                   <li><strong>Cargar el programa:</strong> Haz clic en el botón de carga (flecha derecha) para cargar el código a tu placa.</li>
+                   <li><strong>Ver el resultado:</strong> El LED de tu placa debería comenzar a parpadear.</li>
+               </ol>
+           </div>
+       </div>
+       
+       <div class="tutorial" onclick="toggleManual(this)">
+           <h3>🌡️ Uso de Sensores de Temperatura</h3>
+           <p>Aprende a leer la temperatura ambiental usando sensores como el DHT11 o el LM35 con Arduino.</p>
+           <div class="manual">
+               <h4>📄 Manual:</h4>
+               <ol>
+                   <li><strong>Conectar el sensor:</strong> Conecta el sensor DHT11 o LM35 a los pines adecuados de Arduino según el modelo que estés usando.</li>
+                   <li><strong>Instalar librerías:</strong> Si estás usando el sensor DHT11, instala la librería <a href="https://github.com/adafruit/DHT-sensor-library" target="_blank">Adafruit DHT</a> desde el Administrador de Librerías del Arduino IDE.</li>
+                   <li><strong>Configurar el código:</strong> Escribe el código para leer los valores del sensor. Usa funciones como dht.readTemperature() para leer la temperatura.</li>
+                   <li><strong>Mostrar datos:</strong> Puedes mostrar la temperatura en el monitor serial o en una pantalla LCD.</li>
+                   <li><strong>Prueba tu circuito:</strong> Una vez que subas el código, abre el monitor serial para ver la lectura de la temperatura.</li>
+               </ol>
+           </div>
+       </div>
+       
+       <div class="tutorial" onclick="toggleManual(this)">
+           <h3>⚙️ Control de Motores</h3>
+           <p>Descubre cómo controlar motores DC y servomotores usando Arduino y módulos como el L298N.</p>
+           <div class="manual">
+               <h4>📄 Manual:</h4>
+               <ol>
+                   <li><strong>Conectar el motor:</strong> Conecta el motor a los pines de salida del módulo L298N, y conecta las entradas de control a los pines digitales de Arduino.</li>
+                   <li><strong>Configurar el código:</strong> Configura las salidas de control (IN1, IN2, IN3, IN4) para el control de dirección y velocidad usando PWM.</li>
+                   <li><strong>Controlar la velocidad:</strong> Usa la función analogWrite() para controlar la velocidad del motor.</li>
+                   <li><strong>Ver el resultado:</strong> El motor debe comenzar a girar con la velocidad que hayas configurado en el código.</li>
+               </ol>
+           </div>
+       </div>
+       
+       <div class="tutorial" onclick="toggleManual(this)">
+           <h3>🔑 Lectura de Tarjetas RFID</h3>
+           <p>Aprende a identificar tarjetas o llaveros RFID usando el lector RC522 y Arduino.</p>
+         <div class="manual">
+            <h4>📄 Manual:</h4>
+            <ol>
+               <li><strong>Conectar el lector RFID:</strong> Conecta el módulo RC522 a los pines de Arduino según el esquema
+                  proporcionado en la documentación del módulo.</li>
+               <li><strong>Instalar librerías:</strong> Instala la librería MFRC522 desde el Administrador de Librerías del
+                  Arduino IDE.</li>
+               <li><strong>Leer la tarjeta RFID:</strong> Usa el código base que se proporciona con la librería para leer el UID
+                  de la tarjeta o llavero RFID.</li>
+               <li><strong>Mostrar los datos:</strong> Los datos leídos se pueden mostrar en el monitor serial o realizar alguna
+                  acción, como encender un LED o controlar un relé.</li>
+            </ol>
          </div>
-
-         <div class="tutorial">
-            <h3>🌡️ Uso de Sensores de Temperatura</h3>
-            <p>Aprende a leer la temperatura ambiental usando sensores como el DHT11 o el LM35 con Arduino.</p>
-          </div>
+         </div>
          
-          <div class="tutorial">
-            <h3>⚙️ Control de Motores</h3>
-            <p>Descubre cómo controlar motores DC y servomotores usando Arduino y módulos como el L298N.</p>
-          </div>
-
-          <div class="tutorial">
-            <h3>🔑 Lectura de Tarjetas RFID</h3>
-            <p>Aprende a identificar tarjetas o llaveros RFID usando el lector RC522 y Arduino.</p>
-          </div>
-
-          <div class="tutorial">
+         <div class="tutorial" onclick="toggleManual(this)">
             <h3>💬 Comunicación Serial</h3>
             <p>Entiende cómo enviar y recibir datos entre Arduino y tu computadora usando el monitor serial.</p>
-          </div>
-
-          <div class="tutorial">
+            <div class="manual">
+               <h4>📄 Manual:</h4>
+               <ol>
+                  <li><strong>Configurar la comunicación serial:</strong> En tu código de Arduino, configura la comunicación
+                     serial usando Serial.begin(9600); para comenzar a enviar y recibir datos.</li>
+                  <li><strong>Enviar datos:</strong> Usa Serial.print() o Serial.println() para enviar datos desde Arduino al
+                     monitor serial de tu computadora.</li>
+                  <li><strong>Leer datos:</strong> Usa Serial.read() para leer datos enviados desde tu computadora a Arduino.
+                  </li>
+                  <li><strong>Ver el resultado:</strong> Abre el monitor serial en el IDE de Arduino para ver los datos enviados
+                     desde Arduino.</li>
+               </ol>
+            </div>
+         </div>
+         
+         <div class="tutorial" onclick="toggleManual(this)">
             <h3>📺 Uso de Pantallas LCD</h3>
             <p>Aprende a mostrar mensajes en pantallas LCD 16x2 usando Arduino y la librería LiquidCrystal.</p>
-          </div>
-
-          <div class="tutorial">
+            <div class="manual">
+               <h4>📄 Manual:</h4>
+               <ol>
+                  <li><strong>Conectar la pantalla LCD:</strong> Conecta los pines de la pantalla LCD 16x2 a los pines de Arduino
+                     (utiliza el pin 12 y 11 para la comunicación I2C, o conecta los pines de datos en paralelo).</li>
+                  <li><strong>Instalar librería:</strong> Asegúrate de tener la librería LiquidCrystal instalada en Arduino IDE.
+                  </li>
+                  <li><strong>Inicializar la pantalla:</strong> Usa lcd.begin(16, 2) para inicializar una pantalla de 16x2.
+                  </li>
+                  <li><strong>Mostrar texto:</strong> Usa lcd.print("Texto") para mostrar texto en la pantalla LCD.</li>
+               </ol>
+                  width="100%">
+            </div>
+         </div>
+         
+         <div class="tutorial" onclick="toggleManual(this)">
             <h3>🏃‍♂️ Sensores de Movimiento PIR</h3>
             <p>Detecta el movimiento de personas o animales usando sensores PIR conectados a Arduino.</p>
-          </div>
+            <div class="manual">
+               <h4>📄 Manual:</h4>
+               <ol>
+                  <li><strong>Conectar el sensor PIR:</strong> Conecta el sensor PIR al pin digital de Arduino (usualmente al pin
+                     7).</li>
+                  <li><strong>Configurar el código:</strong> Usa la función digitalRead() para detectar el estado del sensor
+                     PIR (alto si detecta movimiento, bajo si no lo detecta).</li>
+                  <li><strong>Controlar un dispositivo:</strong> Enciende un LED o realiza una acción cuando el sensor detecta
+                     movimiento.</li>
+                  <li><strong>Ver el resultado:</strong> Usa el monitor serial para verificar si el sensor detecta movimiento.
+                  </li>
+               </ol>
+            </div>
+         </div>
 
       </section>
 
-      <section id="contacto">
-         <h2>Contacto</h2>
-         <p>¿Tienes dudas o quieres colaborar? ¡Escríbenos y hagamos proyectos juntos!</p>
-      </section>
+      <script>
+         function toggleManual(tutorialElement) {
+           const manual = tutorialElement.querySelector('.manual');
+           manual.classList.toggle('show');
+         }
+         </script>
+         
+      
+      
+
+         <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¿Tienes dudas o quieres colaborar? ¡Escríbenos y hagamos proyectos juntos!</p>
+            <p>Email: <a href="ardunation@gmail.com">ardunation@gmail.com</a></p>
+         </section>
    </div>
 
 
